@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "INNSMap_ServicesAuthorizationVerificationData.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    INNSMap_ServicesAuthorizationVerificationData *services = [[INNSMap_ServicesAuthorizationVerificationData alloc] init];
+    [services INNSMap_RegisterSDKWithAppKey:@"01A109C419BAE0D4" success:^(INNSMap_ReturnInfo *returnInfo) {
+        NSLog(@"success");
+    } failure:^(NSString *error) {
+        NSLog(@"%@",error);
+    }];
+    
     return YES;
 }
 
